@@ -1,9 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors'); // 👉 Importar CORS
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// 👉 Configuración de CORS para permitir tu dominio
+app.use(cors({
+  origin: "https://ustaxander.com", // Cambia si usas otro dominio
+  methods: ["GET", "POST"],
+}));
 
 // Middleware para analizar JSON y formularios
 app.use(bodyParser.json());
