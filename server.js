@@ -1,16 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors'); // 👉 Importar CORS
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// 👉 Configuración de CORS para permitir tu dominio
-app.use(cors({
-  origin: "https://ustaxander.com", // Cambia si usas otro dominio
-  methods: ["GET", "POST"],
-}));
 
 // Middleware para analizar JSON y formularios
 app.use(bodyParser.json());
@@ -30,7 +23,7 @@ app.post('/submit', (req, res) => {
     const { nombre, correo, telefono, estado, fechaHora, "codigo-descuento": descuento } = req.body;
 
     // Mostrar cada campo en logs de Render
-    console.log("=== Nuevo formulario recibido ===");
+    console.log("=== 🏮🏮🏮Nuevo formulario recibido🏮🏮🏮 ===");
     console.log("Nombre:", nombre);
     console.log("Correo:", correo);
     console.log("Teléfono:", telefono);
