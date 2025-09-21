@@ -1,9 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware para permitir CORS (por si tu front y backend están en dominios distintos)
+app.use(cors());
 
 // Middleware para analizar JSON y formularios
 app.use(bodyParser.json());
@@ -20,17 +24,23 @@ app.get('/', (req, res) => {
 // Ruta para recibir datos del formulario
 app.post('/submit', (req, res) => {
   try {
-    const { nombre, correo, telefono, estado, fechaHora, "codigo-descuento": descuento } = req.body;
+    // Extraemos datos manualmente para evitar problemas con guiones
+    const nombre = req.body.nombre || "";
+    const correo = req.body.correo || "";
+    const telefono = req.body.telefono || "";
+    const estado = req.body.estado || "";
+    const fechaHora = req.body.fechaHora || "";
+    const descuento = req.body["codigo-descuento"] || req.body.codigo_descuento || "";
 
     // Mostrar cada campo en logs de Render
-    console.log("=== 🏮🏮🏮Nuevo formulario recibido🏮🏮🏮 ===");
+    console.log("=== 🏮🏮🏮 Nuevo formulario recibido 🏮🏮🏮 ===");
     console.log("Nombre:", nombre);
     console.log("Correo:", correo);
     console.log("Teléfono:", telefono);
     console.log("Estado:", estado);
     console.log("Fecha y Hora:", fechaHora);
     console.log("Código de descuento:", descuento);
-    console.log("===============================");
+    console.log("==========================================");
 
     // Responder al cliente
     res.status(201).send("Datos guardados correctamente.");
