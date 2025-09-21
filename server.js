@@ -1,50 +1,66 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
-const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Habilitar CORS para todas las rutas
-app.use(cors());
+// --- CORS manual (sin paquete cors) ---
+const ALLOWED_ORIGINS = [
+  'https://ustaxander.com',
+  'https://taxander-node-main.onrender.com', // por si pruebas directo
+  'http://localhost:5500' // quítalo si no lo usas en local
+];
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && ALLOWED_ORIGINS.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 
-// Middleware para analizar JSON y formularios
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// --- Parsers nativos de Express ---
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // <- necesario para x-www-form-urlencoded
 
-// Servir archivos estáticos desde la carpeta "docs"
+// --- Archivos estáticos ---
 app.use(express.static(path.join(__dirname, 'docs')));
 
-// Ruta principal
+// Salud
+app.get('/health', (_, res) => res.status(200).send('ok'));
+
+// Home (ajusta si tu index principal es otro)
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'docs', 'index-en.html'));
 });
 
-// Ruta para recibir datos del formulario
+// --- Endpoint del formulario ---
 app.post('/submit', (req, res) => {
   try {
-    const { nombre, correo, telefono, estado, fechaHora, codigo_descuento } = req.body;
+    const { nombre, correo, telefono, estado, fechaHora } = req.body;
+    // campo con guion se lee así:
+    const descuento = req.body['codigo-descuento'];
 
-    // Mostrar cada campo en logs de Render
-    console.log("=== 🏮🏮🏮 Nuevo formulario recibido 🏮🏮🏮 ===");
-    console.log("Nombre:", nombre);
-    console.log("Correo:", correo);
-    console.log("Teléfono:", telefono);
-    console.log("Estado:", estado);
-    console.log("Fecha y Hora:", fechaHora);
-    console.log("Código de descuento:", codigo_descuento);
-    console.log("==========================================");
+    console.log('=== 🏮🏮🏮 Nuevo formulario recibido 🏮🏮🏮 ===');
+    console.log('Nombre:', nombre);
+    console.log('Correo:', correo);
+    console.log('Teléfono:', telefono);
+    console.log('Estado:', estado);
+    console.log('Fecha y Hora:', fechaHora);
+    console.log('Código de descuento:', descuento);
+    console.log('=============================================');
 
-    // Responder al cliente
-    res.status(201).json({ success: true, message: "Datos guardados correctamente." });
-  } catch (error) {
-    console.error("❌ Error al procesar el formulario:", error);
-    res.status(500).json({ success: false, message: "Hubo un error al guardar los datos." });
+    res.status(201).type('text/plain').send('Datos guardados correctamente.');
+  } catch (err) {
+    console.error('❌ Error al procesar el formulario:', err);
+    res.status(500).type('text/plain').send('Hubo un error al guardar los datos.');
   }
 });
 
-// Iniciar servidor
+// --- Start ---
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
