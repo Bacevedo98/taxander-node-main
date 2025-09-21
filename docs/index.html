@@ -757,63 +757,38 @@
     <h3 class="text-2xl font-bold text-center">Contáctanos</h3>
     <p class="text-center mt-4">
       Correo:
-      <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">
-        info@ustaxander.com
-      </a>
+      <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">info@ustaxander.com</a>
     </p>
     <p class="text-center">
       Cel:
-      <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">
-        +1 703 357 0778
-      </a>
+      <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">+1 703 357 0778</a>
     </p>
 
     <!-- FORMULARIO -->
     <form
       action="https://taxander-node-main.onrender.com/submit"
       method="POST"
+      id="contactForm"
       class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-900"
     >
       <div class="mb-4">
         <label for="nombre" class="block font-bold">Nombre:</label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          class="w-full p-2 border rounded"
-          required
-        />
+        <input type="text" id="nombre" name="nombre" class="w-full p-2 border rounded" required />
       </div>
 
       <div class="mb-4">
         <label for="correo" class="block font-bold">Correo:</label>
-        <input
-          type="email"
-          id="correo"
-          name="correo"
-          class="w-full p-2 border rounded"
-          required
-        />
+        <input type="email" id="correo" name="correo" class="w-full p-2 border rounded" required />
       </div>
 
       <div class="mb-4">
         <label for="telefono" class="block font-bold">Teléfono:</label>
-        <input
-          type="tel"
-          id="telefono"
-          name="telefono"
-          class="w-full p-2 border rounded"
-        />
+        <input type="tel" id="telefono" name="telefono" class="w-full p-2 border rounded" />
       </div>
 
       <div class="mb-4">
         <label for="estado" class="block font-bold">Estado (EE. UU.):</label>
-        <select
-          id="estado"
-          name="estado"
-          class="w-full p-2 border rounded"
-          required
-        >
+        <select id="estado" name="estado" class="w-full p-2 border rounded" required>
           <option value="" disabled selected>Selecciona tu estado</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -876,15 +851,10 @@
             id="fecha"
             name="fecha"
             class="w-1/2 p-2 border rounded"
+            required
             min="2026-01-26"
-            required
           />
-          <select
-            id="hora"
-            name="hora"
-            class="w-1/2 p-2 border rounded"
-            required
-          >
+          <select id="hora" name="hora" class="w-1/2 p-2 border rounded" required>
             <option value="08:00">08:00</option>
             <option value="08:30">08:30</option>
             <option value="09:00">09:00</option>
@@ -911,13 +881,11 @@
       </div>
 
       <div class="mb-4">
-        <label for="codigo-descuento" class="block font-bold">
-          Código de Descuento (¡aprovéchalo!):
-        </label>
+        <label for="codigo_descuento" class="block font-bold">Código de Descuento (¡aprovéchalo!):</label>
         <input
           type="text"
-          id="codigo-descuento"
-          name="codigo-descuento"
+          id="codigo_descuento"
+          name="codigo_descuento"
           class="w-full p-2 border rounded"
         />
       </div>
@@ -929,6 +897,11 @@
         Enviar
       </button>
     </form>
+
+    <!-- Mensaje de confirmación -->
+    <p id="formMessage" class="text-center text-green-500 font-bold mt-4 hidden">
+      ✅ Form sent
+    </p>
   </div>
 </section>
 
@@ -939,13 +912,14 @@
   <a href="#" class="text-white">Términos legales</a>
 </footer>
 
-<!-- Script para enviar datos sin salir del sitio -->
+<!-- Script para manejar el envío -->
 <script>
-  const form = document.querySelector("form[action$='/submit']");
+  const form = document.getElementById("contactForm");
+  const message = document.getElementById("formMessage");
 
   if (form) {
     form.addEventListener("submit", async function (event) {
-      event.preventDefault(); // Evita redirección
+      event.preventDefault();
 
       const fecha = form.querySelector("#fecha").value;
       const hora = form.querySelector("#hora").value;
@@ -955,29 +929,25 @@
         return;
       }
 
-      // Construimos los datos
+      const fechaHora = `${fecha} ${hora}`;
       const fd = new FormData(form);
-      fd.append("fechaHora", `${fecha} ${hora}`);
-
-      // Convertimos a formato x-www-form-urlencoded
-      const body = new URLSearchParams(fd);
+      fd.append("fechaHora", fechaHora);
 
       try {
-        const resp = await fetch(form.action, {
+        const res = await fetch(form.action, {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body,
+          body: new URLSearchParams(fd),
         });
 
-        if (resp.ok) {
-          alert("✅ Form sent");
+        if (res.ok) {
+          message.classList.remove("hidden");
           form.reset();
         } else {
-          alert("❌ Error al enviar formulario");
+          alert("Hubo un error al enviar el formulario.");
         }
       } catch (err) {
-        console.error("Error:", err);
-        alert("❌ Error de conexión con el servidor");
+        console.error("❌ Error al enviar:", err);
+        alert("Error de conexión con el servidor.");
       }
     });
   }
