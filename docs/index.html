@@ -751,42 +751,69 @@
   }
 </style>
 
-
-
 <!-- Contáctanos -->
 <section id="contacto" class="bg-[#445B83] text-white py-12">
   <div class="container mx-auto">
     <h3 class="text-2xl font-bold text-center">Contáctanos</h3>
-    <p class="text-center mt-4">Correo: 
-      <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">info@ustaxander.com</a>
+    <p class="text-center mt-4">
+      Correo:
+      <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">
+        info@ustaxander.com
+      </a>
     </p>
-    <p class="text-center">Cel: 
-      <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">+1 703 357 0778</a>
+    <p class="text-center">
+      Cel:
+      <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">
+        +1 703 357 0778
+      </a>
     </p>
-    
-    <!-- FORMULARIO -->
-    <form id="taxander-form" action="https://taxander-node-main.onrender.com/submit" 
-          method="POST" 
-          class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-900">
 
+    <!-- FORMULARIO -->
+    <form
+      action="https://taxander-node-main.onrender.com/submit"
+      method="POST"
+      class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-900"
+    >
       <div class="mb-4">
         <label for="nombre" class="block font-bold">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" class="w-full p-2 border rounded" required>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          class="w-full p-2 border rounded"
+          required
+        />
       </div>
 
       <div class="mb-4">
         <label for="correo" class="block font-bold">Correo:</label>
-        <input type="email" id="correo" name="correo" class="w-full p-2 border rounded" required>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          class="w-full p-2 border rounded"
+          required
+        />
       </div>
 
       <div class="mb-4">
         <label for="telefono" class="block font-bold">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" class="w-full p-2 border rounded">
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          class="w-full p-2 border rounded"
+        />
       </div>
 
       <div class="mb-4">
         <label for="estado" class="block font-bold">Estado (EE. UU.):</label>
-        <select id="estado" name="estado" class="w-full p-2 border rounded" required>
+        <select
+          id="estado"
+          name="estado"
+          class="w-full p-2 border rounded"
+          required
+        >
           <option value="" disabled selected>Selecciona tu estado</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -844,12 +871,20 @@
       <div class="mb-4">
         <label for="fecha" class="block font-bold">Fecha y Hora:</label>
         <div class="flex gap-2">
-          <!-- Restricción: solo después del 26 enero 2026 -->
-          <input type="date" id="fecha" name="fecha" class="w-1/2 p-2 border rounded" 
-                 min="2026-01-26" required>
-          
-          <!-- Horario 08:00 - 18:00 -->
-          <select id="hora" name="hora" class="w-1/2 p-2 border rounded" required>
+          <input
+            type="date"
+            id="fecha"
+            name="fecha"
+            class="w-1/2 p-2 border rounded"
+            min="2026-01-26"
+            required
+          />
+          <select
+            id="hora"
+            name="hora"
+            class="w-1/2 p-2 border rounded"
+            required
+          >
             <option value="08:00">08:00</option>
             <option value="08:30">08:30</option>
             <option value="09:00">09:00</option>
@@ -876,16 +911,23 @@
       </div>
 
       <div class="mb-4">
-        <label for="codigo-descuento" class="block font-bold">Código de Descuento (¡aprovéchalo!):</label>
-        <input type="text" id="codigo-descuento" name="codigo-descuento" class="w-full p-2 border rounded">
+        <label for="codigo-descuento" class="block font-bold">
+          Código de Descuento (¡aprovéchalo!):
+        </label>
+        <input
+          type="text"
+          id="codigo-descuento"
+          name="codigo-descuento"
+          class="w-full p-2 border rounded"
+        />
       </div>
 
-      <button type="submit" class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded">
+      <button
+        type="submit"
+        class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded"
+      >
         Enviar
       </button>
-
-      <!-- Mensaje de éxito -->
-      <p id="success-message" class="hidden mt-4 text-green-600 font-bold text-center"></p>
     </form>
   </div>
 </section>
@@ -893,53 +935,52 @@
 <!-- Footer -->
 <footer class="bg-gray-800 text-gray-400 py-6 text-center">
   <p>&copy; 2025 Taxander 🚀. Todos los derechos reservados.</p>
-  <a href="#" class="text-white">Política de privacidad</a> | 
+  <a href="#" class="text-white">Política de privacidad</a> |
   <a href="#" class="text-white">Términos legales</a>
 </footer>
 
-<!-- Script -->
+<!-- Script para enviar datos sin salir del sitio -->
 <script>
-  const form = document.getElementById("taxander-form");
-  const successMessage = document.getElementById("success-message");
+  const form = document.querySelector("form[action$='/submit']");
 
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evita redirección
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault(); // Evita redirección
 
-    const fecha = form.querySelector("#fecha").value;
-    const hora = form.querySelector("#hora").value;
+      const fecha = form.querySelector("#fecha").value;
+      const hora = form.querySelector("#hora").value;
 
-    if (!fecha || !hora) {
-      alert("Por favor, selecciona una fecha y una hora.");
-      return;
-    }
-
-    // Combinar fecha y hora
-    const fechaHoraInput = document.createElement("input");
-    fechaHoraInput.type = "hidden";
-    fechaHoraInput.name = "fechaHora";
-    fechaHoraInput.value = `${fecha} ${hora}`;
-    form.appendChild(fechaHoraInput);
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData
-      });
-
-      if (response.ok) {
-        successMessage.textContent = "✅ Formulario enviado correctamente";
-        successMessage.classList.remove("hidden");
-        successMessage.classList.add("block");
-        form.reset();
-      } else {
-        alert("❌ Error al enviar el formulario.");
+      if (!fecha || !hora) {
+        alert("Por favor, selecciona una fecha y una hora.");
+        return;
       }
-    } catch (error) {
-      alert("⚠️ Error de conexión con el servidor.");
-    }
-  });
+
+      // Construimos los datos
+      const fd = new FormData(form);
+      fd.append("fechaHora", `${fecha} ${hora}`);
+
+      // Convertimos a formato x-www-form-urlencoded
+      const body = new URLSearchParams(fd);
+
+      try {
+        const resp = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body,
+        });
+
+        if (resp.ok) {
+          alert("✅ Form sent");
+          form.reset();
+        } else {
+          alert("❌ Error al enviar formulario");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Error de conexión con el servidor");
+      }
+    });
+  }
 </script>
 </body>
 </html>
