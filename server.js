@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para permitir CORS (por si tu front y backend están en dominios distintos)
+// Habilitar CORS para todas las rutas
 app.use(cors());
 
 // Middleware para analizar JSON y formularios
@@ -24,13 +24,7 @@ app.get('/', (req, res) => {
 // Ruta para recibir datos del formulario
 app.post('/submit', (req, res) => {
   try {
-    // Extraemos datos manualmente para evitar problemas con guiones
-    const nombre = req.body.nombre || "";
-    const correo = req.body.correo || "";
-    const telefono = req.body.telefono || "";
-    const estado = req.body.estado || "";
-    const fechaHora = req.body.fechaHora || "";
-    const descuento = req.body["codigo-descuento"] || req.body.codigo_descuento || "";
+    const { nombre, correo, telefono, estado, fechaHora, codigo_descuento } = req.body;
 
     // Mostrar cada campo en logs de Render
     console.log("=== 🏮🏮🏮 Nuevo formulario recibido 🏮🏮🏮 ===");
@@ -39,14 +33,14 @@ app.post('/submit', (req, res) => {
     console.log("Teléfono:", telefono);
     console.log("Estado:", estado);
     console.log("Fecha y Hora:", fechaHora);
-    console.log("Código de descuento:", descuento);
+    console.log("Código de descuento:", codigo_descuento);
     console.log("==========================================");
 
     // Responder al cliente
-    res.status(201).send("Datos guardados correctamente.");
+    res.status(201).json({ success: true, message: "Datos guardados correctamente." });
   } catch (error) {
     console.error("❌ Error al procesar el formulario:", error);
-    res.status(500).send("Hubo un error al guardar los datos.");
+    res.status(500).json({ success: false, message: "Hubo un error al guardar los datos." });
   }
 });
 
