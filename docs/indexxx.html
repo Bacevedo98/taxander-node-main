@@ -10,8 +10,8 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Taxander: Tax filing service for the Latino community in the U.S. Easy, flexible, and affordable. Book your appointment now!">
-  <title>Taxander 🚀 - Your Ally in Tax Filing</title>
+  <meta name="description" content="Taxander: Servicio de declaración de impuestos para la comunidad latina joven en EE.UU. Fácil, flexible y económico. Reserva tu cita ahora!">
+  <title>Taxander 🚀 - Tu aliado en declaración de impuestos</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -121,42 +121,42 @@
   <!-- Header -->
   <header class="header">
     <select onchange="location = this.value;">
-        <option value="index-es.html" selected>Spanish</option>
-        <option value="index-en.html">English</option>
-      </select>
+      <option value="index-es.html" selected>Español</option>
+      <option value="index-en.html">Ingles</option>
+    </select>
     <div class="container mx-auto flex justify-between items-center py-4 px-4">
       <div class="logo-container flex items-center">
         <h1 class="font-bold">Taxander 🚀</h1>
       </div>
-      <a href="#contact" class="bg-[#2D5080] hover:bg-[#435B83] text-white py-2 px-4 rounded shadow-lg">
-        Book your appointment now!
+      <a href="#contacto" class="bg-[#2D5080] hover:bg-[#435B83] text-white py-2 px-4 rounded shadow-lg">
+        ¡Reserva tu cita ahora!
       </a>
     </div>
   </header>
 
-  <!-- Featured Services -->
+  <!-- Servicios Destacados -->
   <section class="container mx-auto py-20 pt-32" data-aos="fade-up">
-    <h3 class="text-2xl font-bold text-center">Featured Services</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition" onclick="showOverlay('individual')">
-        <img src="images/i2.webp" alt="Individual Tax Returns" class="mx-auto mb-4">
-        <h4 class="font-bold">Individual Tax Returns</h4>
-        <p class="mt-4">Fast and effective to maximize your refund. 📝</p>
+    <h3 class="text-2xl font-bold text-center">Servicios Destacados</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" data-aos="fade-up" data-aos-delay="200">
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('individual')">
+        <img src="images/i2.webp" alt="Declaraciones Individuales" class="mx-auto mb-4">
+        <h4 class="font-bold">Declaraciones Individuales</h4>
+        <p class="mt-4">Rápidas y efectivas para maximizar tu reembolso. 📝</p>
       </div>
-      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition" onclick="showOverlay('corporate')">
-        <img src="images/i3.webp" alt="Corporate Tax Returns" class="mx-auto mb-4">
-        <h4 class="font-bold">Corporate Tax Returns</h4>
-        <p class="mt-4">Optimize your business taxes with experts. 📈</p>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('corporativas')">
+        <img src="images/i3.webp" alt="Declaraciones Corporativas" class="mx-auto mb-4">
+        <h4 class="font-bold">Declaraciones Corporativas</h4>
+        <p class="mt-4">Optimiza tus impuestos empresariales con expertos. 📈</p>
       </div>
-      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition" onclick="showOverlay('issues')">
-        <img src="images/i4.webp" alt="IRS Problem Resolution" class="mx-auto mb-4">
-        <h4 class="font-bold">IRS Problem Resolution</h4>
-        <p class="mt-4">Quick and effective solutions for your IRS notices. 🚨</p>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('problemas')">
+        <img src="images/i4.webp" alt="Resolución de Problemas" class="mx-auto mb-4">
+        <h4 class="font-bold">Resolución de Problemas con el IRS</h4>
+        <p class="mt-4">Soluciones rápidas y efectivas para tus notificaciones. 🚨</p>
       </div>
-      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition" onclick="showOverlay('planning')">
-        <img src="images/i5.webp" alt="Tax Planning" class="mx-auto mb-4">
-        <h4 class="font-bold">Tax Planning</h4>
-        <p class="mt-4">Plan your financial future with smart strategies. 📊</p>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('planeacion')">
+        <img src="images/i5.webp" alt="Planeación Fiscal" class="mx-auto mb-4">
+        <h4 class="font-bold">Planeación Fiscal</h4>
+        <p class="mt-4">Planifica tu futuro financiero con estrategias inteligentes. 📊</p>
       </div>
     </div>
   </section>
@@ -194,23 +194,22 @@
 
       switch (type) {
         case 'individual':
-            title = 'Individual Tax Returns';
-            content = 'With our Individual Tax Returns service, you will receive specialized tax advice to maximize your refunds. We carefully review every detail of your income and deductions to ensure the most beneficial process for you.';
-            break;
-        case 'corporate':
-            title = 'Corporate Tax Returns';
-            content = 'We provide strategies to optimize your companys tax burden, analyze business activity, and design tax-saving plans, always in full compliance with regulations.';
-            break;
-        case 'issues':
-            title = 'IRS Problem Resolution';
-            content = 'Do you have disputes with the IRS? Our team takes care of representing you, negotiating, and resolving any type of notice or audit, stress-free and professionally.';
-            break;
-        case 'planning':
-            title = 'Tax Planning';
-            content = 'Plan your financial future with a comprehensive strategy and save on taxes intelligently. Ensure your financial stability and the growth of your wealth.';
-            break;
-        }
-
+          title = 'Declaraciones Individuales';
+          content = 'Con nuestras Declaraciones Individuales, obtendrás asesoría fiscal especializada para maximizar tus reembolsos. Revisamos cada detalle de tus ingresos y deducciones para asegurar el trámite más beneficioso para ti.';
+          break;
+        case 'corporativas':
+          title = 'Declaraciones Corporativas';
+          content = 'Te ofrecemos estrategias para optimizar la carga tributaria de tu empresa, analizar la actividad comercial y diseñar planes de ahorro fiscal, siempre cumpliendo con la normativa.';
+          break;
+        case 'problemas':
+          title = 'Resolución de Problemas con el IRS';
+          content = '¿Tienes disputas con el IRS? Nuestro equipo se encarga de representarte, negociar y resolver cualquier tipo de notificación o auditoría, sin estrés y de forma profesional.';
+          break;
+        case 'planeacion':
+          title = 'Planeación Fiscal';
+          content = 'Planifica tu futuro financiero con un plan integral y ahorra impuestos de forma inteligente. Asegura tu estabilidad económica y el crecimiento de tu patrimonio.';
+          break;
+      }
 
       overlayTitle.textContent = title;
       overlayContent.textContent = content;
@@ -235,61 +234,59 @@
   <!-- Sobre Nosotros -->
   <section class="bg-[#F7F9FC] py-12" data-aos="fade-up">
     <div class="container mx-auto text-center">
-      <h3 class="text-2xl font-bold">About Us</h3>
+      <h3 class="text-2xl font-bold">Sobre Nosotros</h3>
       <div class="mt-4">
         <img src="i6.webp" alt="Equipo Taxander" class="parallax-img mx-auto rounded-lg shadow-lg w-1/2">
       </div>
-      <p class="mt-6 max-w-2xl mx-auto">
-        At <strong>Taxander</strong> 🚀, we simplify the tax process for the Latino community in the U.S. Our team of professionals provides <strong>affordable, transparent, and effective</strong> services so you can enjoy peace of mind and maximize your refund.
-      </p>
+      <p class="mt-4">En Taxander 🚀, nos especializamos en ayudar a la comunidad latina a cumplir con sus obligaciones fiscales de manera sencilla y económica. Nuestro objetivo es garantizar tu tranquilidad y maximizar tu reembolso.</p>
     </div>
   </section>
 
-  <!-- More Services -->
-<section class="container mx-auto py-12 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
-    <h3 class="text-3xl font-extrabold text-center text-gray-800">More Services</h3>
+  <!-- Más Servicios -->
+  <section class="container mx-auto py-12 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+    <h3 class="text-3xl font-extrabold text-center text-gray-800">Más Servicios</h3>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
       
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Know Your Tax Benefits</h4>
+        <h4 class="font-bold text-lg text-gray-900">Conoce tus Beneficios Fiscales</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          Did you know you may be eligible for the Earned Income Tax Credit (EITC) or deduct your education expenses? Discover how we can help you maximize your benefits!
+          ¿Sabías que puedes ser elegible para el Crédito por Ingreso del Trabajo (EITC) o deducir tus gastos de educación? ¡Descubre cómo podemos ayudarte a maximizar tus beneficios!
         </p>
       </div>
   
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Avoid Issues with the IRS</h4>
+        <h4 class="font-bold text-lg text-gray-900">Evita Problemas con el IRS</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          Always file accurate and complete tax returns. Keep your receipts and financial records for at least 3 years.
+          Presenta siempre declaraciones precisas y completas. Conserva tus recibos y registros financieros al menos por 3 años.
         </p>
       </div>
   
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Tax Updates 2024</h4>
+        <h4 class="font-bold text-lg text-gray-900">Novedades Fiscales 2024</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          In 2024, the contribution limits for 401(k) retirement plans have increased. Let us help you take advantage of these benefits!
+          En 2024, los límites para las contribuciones al plan de retiro 401(k) han aumentado. ¡Déjanos ayudarte a aprovechar estos beneficios!
         </p>
       </div>
   
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Free Tools</h4>
+        <h4 class="font-bold text-lg text-gray-900">Herramientas Gratuitas</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          Use the "Where’s My Refund?" tool to know when your refund will arrive. Calculate your withholdings with the IRS Withholding Calculator.
+          Usa la herramienta de "Estado de tu Reembolso" para saber cuándo llegará tu devolución. Calcula tus retenciones con la Calculadora de Retención del IRS.
         </p>
       </div>
   
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Emergency Case Solutions</h4>
+        <h4 class="font-bold text-lg text-gray-900">Soluciones en Casos de Emergencia</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          Did you receive a letter from the IRS? Don’t panic! We represent you before the IRS to quickly resolve any issue.
+          ¿Recibiste una carta del IRS? ¡No entres en pánico! Te representamos ante el IRS para resolver cualquier problema rápidamente.
         </p>
       </div>
   
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
-        <h4 class="font-bold text-lg text-gray-900">Small Business Assistance</h4>
+        <h4 class="font-bold text-lg text-gray-900">Ayuda para Pequeños Negocios</h4>
         <p class="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-          From tax credits to deductions for equipment purchases, we help you take advantage of every benefit available for your business.
+          Desde créditos fiscales hasta deducciones por compras de equipo, te ayudamos a aprovechar cada beneficio disponible para tu negocio.
         </p>
       </div>
       
@@ -297,123 +294,122 @@
   </section>
   
   
-  
-  <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Refund Calculator</h2>
-      <p class="text-center text-gray-600 mb-6">Estimate your tax refund for the 2025 tax year.</p>
-      <form id="taxCalculator" class="bg-white shadow-md rounded-lg p-6 max-w-3xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Gross Income -->
-          <div>
-            <label for="grossIncome" class="block text-gray-700 font-bold mb-2">Gross Income ($):</label>
-            <input type="number" id="grossIncome" name="grossIncome" class="w-full p-3 border rounded-md" min="0" step="0.01" required>
-          </div>
-          <!-- State -->
-          <div>
-            <label for="state" class="block text-gray-700 font-bold mb-2">State:</label>
-            <select id="state" name="state" class="w-full p-3 border rounded-md" required>
-              <option value="" disabled selected>Select your state</option>
-              <option value="CA">California</option>
-              <option value="AL">Alabama</option>
-              <option value="AK">Alaska</option>
-              <option value="AZ">Arizona</option>
-              <option value="AR">Arkansas</option>
-              <option value="CO">Colorado</option>
-              <option value="CT">Connecticut</option>
-              <option value="DE">Delaware</option>
-              <option value="FL">Florida</option>
-              <option value="GA">Georgia</option>
-              <option value="HI">Hawaii</option>
-              <option value="ID">Idaho</option>
-              <option value="IL">Illinois</option>
-              <option value="IN">Indiana</option>
-              <option value="IA">Iowa</option>
-              <option value="KS">Kansas</option>
-              <option value="KY">Kentucky</option>
-              <option value="LA">Louisiana</option>
-              <option value="ME">Maine</option>
-              <option value="MD">Maryland</option>
-              <option value="MA">Massachusetts</option>
-              <option value="MI">Michigan</option>
-              <option value="MN">Minnesota</option>
-              <option value="MS">Mississippi</option>
-              <option value="MO">Missouri</option>
-              <option value="MT">Montana</option>
-              <option value="NE">Nebraska</option>
-              <option value="NV">Nevada</option>
-              <option value="NH">New Hampshire</option>
-              <option value="NJ">New Jersey</option>
-              <option value="NM">New Mexico</option>
-              <option value="NY">New York</option>
-              <option value="NC">North Carolina</option>
-              <option value="ND">North Dakota</option>
-              <option value="OH">Ohio</option>
-              <option value="OK">Oklahoma</option>
-              <option value="OR">Oregon</option>
-              <option value="PA">Pennsylvania</option>
-              <option value="RI">Rhode Island</option>
-              <option value="SC">South Carolina</option>
-              <option value="SD">South Dakota</option>
-              <option value="TN">Tennessee</option>
-              <option value="TX">Texas</option>
-              <option value="UT">Utah</option>
-              <option value="VT">Vermont</option>
-              <option value="VA">Virginia</option>
-              <option value="WA">Washington</option>
-              <option value="WV">West Virginia</option>
-              <option value="WI">Wisconsin</option>
-              <option value="WY">Wyoming</option>
-            </select>
-          </div>
-          <!-- Dependents -->
-          <div>
-            <label for="dependents" class="block text-gray-700 font-bold mb-2">Dependents:</label>
-            <input type="number" id="dependents" name="dependents" class="w-full p-3 border rounded-md" min="0" required>
-          </div>
-          <!-- Filing Status -->
-          <div>
-            <label for="filingStatus" class="block text-gray-700 font-bold mb-2">Filing Status:</label>
-            <select id="filingStatus" name="filingStatus" class="w-full p-3 border rounded-md" required>
-              <option value="" disabled selected>Select your filing status</option>
-              <option value="single">Single</option>
-              <option value="married">Married</option>
-              <option value="head">Head of Household</option>
-            </select>
-          </div>
-          <!-- Additional Contributions -->
-          <div>
-            <label for="additionalContributions" class="block text-gray-700 font-bold mb-2">Additional Contributions (SDI, etc.):</label>
-            <input type="number" id="additionalContributions" name="additionalContributions" class="w-full p-3 border rounded-md" min="0" step="0.01">
-          </div>
+<!-- Calculadora de Reembolso -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Calculadora de Reembolso</h2>
+    <p class="text-center text-gray-600 mb-6">Estima tu reembolso de impuestos para el año fiscal 2025.</p>
+    <form id="taxCalculator" class="bg-white shadow-md rounded-lg p-6 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Ingreso Bruto -->
+        <div>
+          <label for="grossIncome" class="block text-gray-700 font-bold mb-2">Ingreso Bruto ($):</label>
+          <input type="number" id="grossIncome" name="grossIncome" class="w-full p-3 border rounded-md" min="0" step="0.01" required>
         </div>
-        <button type="button" id="calculateButton" class="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg">
-          Calculate
-        </button>
-        <div id="result" class="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg hidden">
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Results</h3>
-          <ul class="text-gray-700">
-            <li><strong>Gross Salary:</strong> $<span id="resultIncome"></span></li>
-            <li><strong>Federal Taxes:</strong> $<span id="resultFederalTax"></span></li>
-            <li><strong>State Taxes:</strong> $<span id="resultStateTax"></span></li>
-            <li><strong>Social Security:</strong> $<span id="resultSocialSecurityTax"></span></li>
-            <li><strong>Medicare:</strong> $<span id="resultMedicareTax"></span></li>
-            <li><strong>Total Taxes:</strong> $<span id="resultTotalTaxes"></span></li>
-            <li><strong>Net Salary:</strong> $<span id="resultNetIncome"></span></li>
-            <li><strong>Average Tax Rate:</strong> <span id="resultAverageRate"></span>%</li>
-            <li><strong>Marginal Tax Rate:</strong> <span id="resultMarginalRate"></span>%</li>
-          </ul>
+        <!-- Estado -->
+        <div>
+          <label for="state" class="block text-gray-700 font-bold mb-2">Estado:</label>
+          <select id="state" name="state" class="w-full p-3 border rounded-md" required>
+            <option value="" disabled selected>Selecciona tu estado</option>
+            <option value="CA">California</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawái</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Luisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Misisipi</option>
+            <option value="MO">Misuri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">Nuevo Hampshire</option>
+            <option value="NJ">Nueva Jersey</option>
+            <option value="NM">Nuevo México</option>
+            <option value="NY">Nueva York</option>
+            <option value="NC">Carolina del Norte</option>
+            <option value="ND">Dakota del Norte</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregón</option>
+            <option value="PA">Pensilvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">Carolina del Sur</option>
+            <option value="SD">Dakota del Sur</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">Virginia Occidental</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
         </div>
-      </form>
-      <div class="flex justify-center mt-6">
-        <canvas id="taxChart" class="w-64 h-64"></canvas>
+        <!-- Dependientes -->
+        <div>
+          <label for="dependents" class="block text-gray-700 font-bold mb-2">Dependientes:</label>
+          <input type="number" id="dependents" name="dependents" class="w-full p-3 border rounded-md" min="0" required>
+        </div>
+        <!-- Estado Civil -->
+        <div>
+          <label for="filingStatus" class="block text-gray-700 font-bold mb-2">Estado Civil:</label>
+          <select id="filingStatus" name="filingStatus" class="w-full p-3 border rounded-md" required>
+            <option value="" disabled selected>Selecciona tu estado civil</option>
+            <option value="single">Soltero</option>
+            <option value="married">Casado</option>
+            <option value="head">Jefe de familia</option>
+          </select>
+        </div>
+        <!-- Contribuciones adicionales -->
+        <div>
+          <label for="additionalContributions" class="block text-gray-700 font-bold mb-2">Contribuciones adicionales (SDI, etc.):</label>
+          <input type="number" id="additionalContributions" name="additionalContributions" class="w-full p-3 border rounded-md" min="0" step="0.01">
+        </div>
       </div>
-      <p class="text-sm text-gray-500 text-center mt-4">
-        Note: Results are estimates based on 2025 tax laws. Please consult a professional for personalized advice.
-      </p>
+      <button type="button" id="calculateButton" class="w-full mt-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg">
+        Calcular
+      </button>
+      <div id="result" class="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg hidden">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Resultados</h3>
+        <ul class="text-gray-700">
+          <li><strong>Salario Bruto:</strong> $<span id="resultIncome"></span></li>
+          <li><strong>Impuestos Federales:</strong> $<span id="resultFederalTax"></span></li>
+          <li><strong>Impuestos Estatales:</strong> $<span id="resultStateTax"></span></li>
+          <li><strong>Seguro Social:</strong> $<span id="resultSocialSecurityTax"></span></li>
+          <li><strong>Medicare:</strong> $<span id="resultMedicareTax"></span></li>
+          <li><strong>Impuestos Totales:</strong> $<span id="resultTotalTaxes"></span></li>
+          <li><strong>Salario Neto:</strong> $<span id="resultNetIncome"></span></li>
+          <li><strong>Tasa Impositiva Promedio:</strong> <span id="resultAverageRate"></span>%</li>
+          <li><strong>Tasa Impositiva Marginal:</strong> <span id="resultMarginalRate"></span>%</li>
+        </ul>
+      </div>
+    </form>
+    <div class="flex justify-center mt-6">
+      <canvas id="taxChart" class="w-64 h-64"></canvas>
     </div>
-  </section>
-  
+    <p class="text-sm text-gray-500 text-center mt-4">
+      Nota: Los resultados son estimaciones basadas en las leyes fiscales de 2025. Consulta a un profesional para obtener información personalizada.
+    </p>
+  </div>
+</section>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -439,7 +435,7 @@
     const state = document.getElementById("state").value;
 
     if (!grossIncome || grossIncome < 0 || !state || !filingStatus) {
-      alert("Please fill out all fields correctly.");
+      alert("Por favor, completa todos los campos correctamente.");
       return;
     }
 
@@ -502,228 +498,225 @@
 </script>
 
 
- <!-- Frequently Asked Questions -->
-<section class="container mx-auto py-12 px-4 sm:px-6 lg:px-8" data-aos="fade-up" x-data="{ open: null }">
-    <h3 class="text-3xl font-extrabold text-center text-gray-800 mb-8">Frequently Asked Questions</h3>
+  <!-- Preguntas Frecuentes -->
+  <section class="container mx-auto py-12 px-4 sm:px-6 lg:px-8" data-aos="fade-up" x-data="{ open: null }">
+    <h3 class="text-3xl font-extrabold text-center text-gray-800 mb-8">Preguntas Frecuentes</h3>
   
     <div class="space-y-4">
   
-      <!-- Question 1 -->
+      <!-- Pregunta 1 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 1 ? open = null : open = 1">
-          What is a tax return?
+          ¿Qué es una declaración de impuestos?
           <span :class="open === 1 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 1" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          It is a report that taxpayers submit to the IRS to declare income, expenses, and other tax-related information.
+          Es un informe que los contribuyentes presentan al IRS para informar ingresos, gastos y otros datos fiscales.
         </div>
       </div>
   
-      <!-- Question 2 -->
+      <!-- Pregunta 2 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 2 ? open = null : open = 2">
-          When is the tax filing deadline?
+          ¿Cuándo es la fecha límite para declarar impuestos?
           <span :class="open === 2 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 2" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          Generally, it is April 15 each year, although it may change if it falls on a weekend or holiday.
+          Generalmente es el 15 de abril de cada año, aunque puede cambiar si cae en fin de semana o feriado.
         </div>
       </div>
   
-      <!-- Question 3 -->
+      <!-- Pregunta 3 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 3 ? open = null : open = 3">
-          What happens if I don’t file my taxes?
+          ¿Qué sucede si no declaro mis impuestos?
           <span :class="open === 3 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 3" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          You could face penalties, interest, and legal actions from the IRS.
+          Podrías enfrentar multas, intereses y acciones legales por parte del IRS.
         </div>
       </div>
   
-      <!-- Question 4 -->
+      <!-- Pregunta 4 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 4 ? open = null : open = 4">
-          What documents do I need to file my taxes?
+          ¿Qué documentos necesito para declarar?
           <span :class="open === 4 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 4" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          W-2 forms, 1099s, receipts for deductible expenses, and other documents related to your income and expenses.
+          Formularios W-2, 1099, recibos de gastos deducibles y otros documentos relacionados con tus ingresos y gastos.
         </div>
       </div>
   
-      <!-- Question 5 -->
+      <!-- Pregunta 5 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 5 ? open = null : open = 5">
-          Can I file taxes if I am a foreigner?
+          ¿Puedo declarar impuestos si soy extranjero?
           <span :class="open === 5 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 5" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          Yes, but you need a taxpayer identification number (ITIN or SSN).
+          Sí, pero necesitas un número de identificación fiscal (ITIN o SSN).
         </div>
       </div>
   
-      <!-- Question 6 -->
+      <!-- Pregunta 6 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 6 ? open = null : open = 6">
-          What is a tax deduction?
+          ¿Qué es una deducción fiscal?
           <span :class="open === 6 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 6" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          It is an expense you can subtract from your income to reduce your tax liability.
+          Es un gasto que puedes restar de tus ingresos para reducir tu obligación tributaria.
         </div>
       </div>
   
-      <!-- Question 7 -->
+      <!-- Pregunta 7 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 7 ? open = null : open = 7">
-          What if I make a mistake on my tax return?
+          ¿Qué pasa si cometo un error en mi declaración?
           <span :class="open === 7 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 7" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          You can file an amendment using Form 1040-X.
+          Puedes presentar una enmienda usando el formulario 1040-X.
         </div>
       </div>
   
-      <!-- Question 8 -->
+      <!-- Pregunta 8 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 8 ? open = null : open = 8">
-          How do I know if I qualify for a refund?
+          ¿Cómo sé si califico para un reembolso?
           <span :class="open === 8 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 8" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          If you paid more taxes than you owed, you may qualify for a refund.
+          Si pagaste más impuestos de los que debías, puedes calificar para un reembolso.
         </div>
       </div>
   
-      <!-- Question 9 -->
+      <!-- Pregunta 9 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 9 ? open = null : open = 9">
-          What is the Child Tax Credit?
+          ¿Qué es el crédito fiscal por hijos?
           <span :class="open === 9 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 9" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          It is a benefit for taxpayers with children that can reduce their tax bill or increase their refund.
+          Es un beneficio para los contribuyentes con hijos que puede reducir su factura fiscal o aumentar su reembolso.
         </div>
       </div>
   
-      <!-- Question 10 -->
+      <!-- Pregunta 10 -->
       <div class="bg-blue-100 rounded-2xl shadow-lg">
         <button 
           class="w-full text-left px-6 py-4 font-bold text-lg text-gray-900 flex justify-between items-center"
           @click="open === 10 ? open = null : open = 10">
-          How can I pay my taxes?
+          ¿Cómo puedo pagar mis impuestos?
           <span :class="open === 10 ? 'rotate-180' : ''" class="transform transition">&#9660;</span>
         </button>
         <div x-show="open === 10" x-transition class="px-6 pb-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-          You can pay online, by mail, or set up a payment plan with the IRS.
+          Puedes pagar en línea, por correo o establecer un plan de pagos con el IRS.
         </div>
       </div>
-  
     </div>
   </section>
-  
   
   <!-- Alpine.js (inclúyelo solo una vez en tu proyecto, antes de cerrar </body>) -->
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 <!-- Testimonios -->
 <section class="bg-black py-12 mt-12 mb-12 overflow-hidden relative" data-aos="fade-up">
-    <div class="container mx-auto text-center">
-      <h3 class="text-2xl font-bold text-white mb-6">Testimonials</h3>
-      <div class="flex space-x-4 animate-scroll flex-wrap justify-center gap-4">
-        <!-- Testimonial 1 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i7.webp" alt="John Perez" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">John Perez</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"The service is amazing! They helped me understand the entire tax process."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 2 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i8.webp" alt="Anna Garcia" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Anna Garcia</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"I love how easy they made everything. Super flexible and attentive."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 3 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i9.webp" alt="Luis Rodriguez" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Luis Rodriguez</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"Everything was fast and efficient! I’ve never had such a great experience."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 4 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i10.webp" alt="Maria Lopez" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Maria Lopez</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"A reliable and professional service. I’m very grateful for their help."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 5 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i11.webp" alt="Carlos Ramirez" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Carlos Ramirez</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"Highly recommended, I understood everything without problems. Thanks for your help!"</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 6 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i12.webp" alt="Lorena Castillo" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Lorena Castillo</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"Always attentive and clear. The best tax experience I’ve ever had."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 7 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i13.webp" alt="Robert Diaz" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Robert Diaz</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"Efficient and trustworthy, they really make everything easier!"</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 8 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i14.webp" alt="Patricia Romero" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Patricia Romero</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"Everything was clear and professional. I 100% recommend them."</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 9 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i15.webp" alt="Gabriel Torres" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Gabriel Torres</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"I always felt in good hands. Thanks for your support and patience!"</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
-        <!-- Testimonial 10 -->
-        <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
-          <img src="images/i16.webp" alt="Isabel Moreno" class="w-12 h-12 mx-auto rounded-full mb-2">
-          <h4 class="font-bold text-sm text-gray-800">Isabel Moreno</h4>
-          <p class="text-xs text-gray-700 italic mt-2">"A service that truly cares about its clients. Excellent!"</p>
-          <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
-        </div>
+  <div class="container mx-auto text-center">
+    <h3 class="text-2xl font-bold text-white mb-6">Testimonios</h3>
+    <div class="flex space-x-4 animate-scroll flex-wrap justify-center gap-4">
+      <!-- Testimonio 1 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i7.webp" alt="Juan Pérez" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Juan Pérez</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"¡El servicio es increíble! Me ayudaron a entender todo el proceso de impuestos."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 2 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i8.webp" alt="Ana García" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Ana García</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Me encanta lo fácil que hicieron todo. Súper flexibles y atentos."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 3 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i9.webp" alt="Luis Rodríguez" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Luis Rodríguez</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"¡Todo fue rápido y eficiente! Nunca había tenido una experiencia tan buena."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 4 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i10.webp" alt="María López" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">María López</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Un servicio confiable y profesional. Estoy muy agradecida por la ayuda."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 5 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i11.webp" alt="Carlos Ramírez" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Carlos Ramírez</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Súper recomendado, entendí todo sin problemas. ¡Gracias por su ayuda!"</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 6 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i12.webp" alt="Lorena Castillo" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Lorena Castillo</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Siempre atentos y claros. La mejor experiencia con impuestos que he tenido."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 7 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i13.webp" alt="Roberto Díaz" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Roberto Díaz</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Eficientes y confiables, ¡realmente hacen todo más fácil!"</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 8 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i14.webp" alt="Patricia Romero" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Patricia Romero</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Todo fue claro y profesional. Los recomiendo al 100%."</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 9 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i15.webp" alt="Gabriel Torres" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Gabriel Torres</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Siempre me sentí en buenas manos. ¡Gracias por su apoyo y paciencia!"</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
+      </div>
+      <!-- Testimonio 10 -->
+      <div class="bg-blue-100 rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0 w-full sm:w-1/2 lg:w-1/4">
+        <img src="images/i16.webp" alt="Isabel Moreno" class="w-12 h-12 mx-auto rounded-full mb-2">
+        <h4 class="font-bold text-sm text-gray-800">Isabel Moreno</h4>
+        <p class="text-xs text-gray-700 italic mt-2">"Un servicio que realmente se preocupa por sus clientes. ¡Excelentes!"</p>
+        <p class="text-yellow-500 mt-2">⭐️⭐️⭐️⭐️⭐️</p>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
 
 <!-- Estilos adicionales -->
 <style>
@@ -758,172 +751,201 @@
   }
 </style>
 
+<!-- Contáctanos -->
+<section id="contacto" class="bg-[#445B83] text-white py-12">
+  <div class="container mx-auto">
+    <h3 class="text-2xl font-bold text-center">Contáctanos</h3>
+    <p class="text-center mt-4">Correo: <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">info@ustaxander.com</a></p>
+    <p class="text-center">Cel: <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">+1 703 357 0778</a></p>
 
+    <!-- FORMULARIO -->
+    <form id="taxander-form" action="https://taxander-node-main.onrender.com/submit" method="POST" class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-900">
+      <div class="mb-4">
+        <label for="nombre" class="block font-bold">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="w-full p-2 border rounded" required>
+      </div>
 
-<!-- Contact Us -->
-<section id="contact" class="bg-[#445B83] text-white py-12">
-    <div class="container mx-auto">
-      <h3 class="text-2xl font-bold text-center">Contact Us</h3>
-      <p class="text-center mt-4">Email: <a href="mailto:info@ustaxander.com" class="text-[#BFD7FF] hover:underline">info@ustaxander.com</a></p>
-      <p class="text-center">Phone: <a href="tel:+17033570778" class="text-[#BFD7FF] hover:underline">+1 703 357 0778</a></p>
-      
-      <form action="https://taxander-node.onrender.com/submit" method="POST" class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg text-gray-900">
-  
-        <div class="mb-4">
-          <label for="name" class="block font-bold">Name:</label>
-          <input type="text" id="name" name="name" class="w-full p-2 border rounded" required>
-        </div>
-  
-        <div class="mb-4">
-          <label for="email" class="block font-bold">Email:</label>
-          <input type="email" id="email" name="email" class="w-full p-2 border rounded" required>
-        </div>
-  
-        <div class="mb-4">
-          <label for="phone" class="block font-bold">Phone:</label>
-          <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded">
-        </div>
-  
-        <div class="mb-4">
-          <label for="state" class="block font-bold">State (U.S.):</label>
-          <select id="state" name="state" class="w-full p-2 border rounded" required>
-            <option value="" disabled selected>Select your state</option>
-            <option value="AL">Alabama</option>
-            <option value="AK">Alaska</option>
-            <option value="AZ">Arizona</option>
-            <option value="AR">Arkansas</option>
-            <option value="CA">California</option>
-            <option value="CO">Colorado</option>
-            <option value="CT">Connecticut</option>
-            <option value="DE">Delaware</option>
-            <option value="FL">Florida</option>
-            <option value="GA">Georgia</option>
-            <option value="HI">Hawaii</option>
-            <option value="ID">Idaho</option>
-            <option value="IL">Illinois</option>
-            <option value="IN">Indiana</option>
-            <option value="IA">Iowa</option>
-            <option value="KS">Kansas</option>
-            <option value="KY">Kentucky</option>
-            <option value="LA">Louisiana</option>
-            <option value="ME">Maine</option>
-            <option value="MD">Maryland</option>
-            <option value="MA">Massachusetts</option>
-            <option value="MI">Michigan</option>
-            <option value="MN">Minnesota</option>
-            <option value="MS">Mississippi</option>
-            <option value="MO">Missouri</option>
-            <option value="MT">Montana</option>
-            <option value="NE">Nebraska</option>
-            <option value="NV">Nevada</option>
-            <option value="NH">New Hampshire</option>
-            <option value="NJ">New Jersey</option>
-            <option value="NM">New Mexico</option>
-            <option value="NY">New York</option>
-            <option value="NC">North Carolina</option>
-            <option value="ND">North Dakota</option>
-            <option value="OH">Ohio</option>
-            <option value="OK">Oklahoma</option>
-            <option value="OR">Oregon</option>
-            <option value="PA">Pennsylvania</option>
-            <option value="RI">Rhode Island</option>
-            <option value="SC">South Carolina</option>
-            <option value="SD">South Dakota</option>
-            <option value="TN">Tennessee</option>
-            <option value="TX">Texas</option>
-            <option value="UT">Utah</option>
-            <option value="VT">Vermont</option>
-            <option value="VA">Virginia</option>
-            <option value="WA">Washington</option>
-            <option value="WV">West Virginia</option>
-            <option value="WI">Wisconsin</option>
-            <option value="WY">Wyoming</option>
+      <div class="mb-4">
+        <label for="correo" class="block font-bold">Correo:</label>
+        <input type="email" id="correo" name="correo" class="w-full p-2 border rounded" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="telefono" class="block font-bold">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" class="w-full p-2 border rounded">
+      </div>
+
+      <div class="mb-4">
+        <label for="estado" class="block font-bold">Estado (EE. UU.):</label>
+        <select id="estado" name="estado" class="w-full p-2 border rounded" required>
+          <option value="" disabled selected>Selecciona tu estado</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawái</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Luisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Misisipi</option>
+          <option value="MO">Misuri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">Nuevo Hampshire</option>
+          <option value="NJ">Nueva Jersey</option>
+          <option value="NM">Nuevo México</option>
+          <option value="NY">Nueva York</option>
+          <option value="NC">Carolina del Norte</option>
+          <option value="ND">Dakota del Norte</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregón</option>
+          <option value="PA">Pensilvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">Carolina del Sur</option>
+          <option value="SD">Dakota del Sur</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">Virginia Occidental</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="fecha" class="block font-bold">Fecha y Hora:</label>
+        <div class="flex gap-2">
+          <!-- Mínimo 26 de enero de 2026 -->
+          <input type="date" id="fecha" name="fecha" class="w-1/2 p-2 border rounded" min="2026-01-26" required>
+          <!-- 08:00 a 18:00 cada 30 min -->
+          <select id="hora" name="hora" class="w-1/2 p-2 border rounded" required>
+            <option value="08:00">08:00</option>
+            <option value="08:30">08:30</option>
+            <option value="09:00">09:00</option>
+            <option value="09:30">09:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
           </select>
         </div>
-  
-        <div class="mb-4">
-          <label for="date" class="block font-bold">Date and Time:</label>
-          <div class="flex gap-2">
-            <input type="date" id="date" name="date" class="w-1/2 p-2 border rounded" required>
-            <select id="time" name="time" class="w-1/2 p-2 border rounded" required>
-              <!-- Hours with 00 and 30 minutes -->
-              <option value="08:00">08:00</option>
-              <option value="08:30">08:30</option>
-              <option value="09:00">09:00</option>
-              <option value="09:30">09:30</option>
-              <option value="10:00">10:00</option>
-              <option value="10:30">10:30</option>
-              <option value="11:00">11:00</option>
-              <option value="11:30">11:30</option>
-              <option value="12:00">12:00</option>
-              <option value="12:30">12:30</option>
-              <option value="13:00">01:00 PM</option>
-              <option value="13:30">01:30 PM</option>
-              <option value="14:00">02:00 PM</option>
-              <option value="14:30">02:30 PM</option>
-              <option value="15:00">03:00 PM</option>
-              <option value="15:30">03:30 PM</option>
-              <option value="16:00">04:00 PM</option>
-              <option value="16:30">04:30 PM</option>
-              <option value="17:00">05:00 PM</option>
-              <option value="17:30">05:30 PM</option>
-              <option value="18:00">06:00 PM</option>
-              <option value="18:30">06:30 PM</option>
-            </select>
-          </div>
-        </div>
-  
-        <div class="mb-4">
-          <label for="discount-code" class="block font-bold">Discount Code (take advantage of it!):</label>
-          <input type="text" id="discount-code" name="discount-code" class="w-full p-2 border rounded">
-        </div>
-  
-        <button type="submit" class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded">
-          Submit
-        </button>
-      </form>
-    </div>
-  </section>
-  
+      </div>
 
-...
+      <div class="mb-4">
+        <label for="codigo-descuento" class="block font-bold">Código de Descuento (¡aprovéchalo!):</label>
+        <input type="text" id="codigo-descuento" name="codigo-descuento" class="w-full p-2 border rounded">
+      </div>
+
+      <button type="submit" class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded">
+        Enviar
+      </button>
+
+      <!-- Mensaje de éxito -->
+      <p id="success-message" class="hidden mt-4 text-green-600 font-bold text-center"></p>
+    </form>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer class="bg-gray-800 text-gray-400 py-6 text-center">
-    <p>&copy; 2025 Taxander 🚀. All rights reserved.</p>
-    <a href="#" class="text-white">Privacy Policy</a> | 
-    <a href="#" class="text-white">Legal Terms</a>
-  </footer>
-  
+  <p>&copy; 2025 Taxander 🚀. Todos los derechos reservados.</p>
+  <a href="#" class="text-white">Política de privacidad</a> |
+  <a href="#" class="text-white">Términos legales</a>
+</footer>
 
-<!-- Script para combinar fecha y hora -->
+<!-- Script para combinar fecha y hora y enviar sin redirigir -->
 <script>
-  // Seleccionar específicamente el formulario de acción "/submit"
-  const form = document.querySelector("form[action='/submit']");
-  form.addEventListener("submit", function (event) {
-    // Combina fecha y hora en un solo campo
-    const fecha = form.querySelector("#fecha").value;
-    const hora = form.querySelector("#hora").value;
+  const form = document.getElementById("taxander-form");
+  const successMessage = document.getElementById("success-message");
 
-    // Verifica si fecha y hora están seleccionadas
-    if (!fecha || !hora) {
-      alert("Please select a date and time.");
-      event.preventDefault(); // Evita el envío si faltan datos
-      return;
-    }
+  if (form) {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
 
-    // Agrega un nuevo input oculto con el valor combinado
-    const fechaHoraInput = document.createElement("input");
-    fechaHoraInput.type = "hidden";
-    fechaHoraInput.name = "fechaHora";
-    fechaHoraInput.value = `${fecha} ${hora}`;
-    form.appendChild(fechaHoraInput);
+      const fecha = form.querySelector("#fecha").value;   // yyyy-mm-dd
+      const hora  = form.querySelector("#hora").value;    // HH:MM
 
-    // Mostrar los datos en la consola para verificar antes del envío
-    console.log("Form submitted with the following information:");
-    console.log(new FormData(form));
-  });
+      // Validación extra (además del min en el input)
+      const MIN_DATE = "2026-01-26";
+      if (!fecha || !hora) {
+        alert("Por favor, selecciona una fecha y una hora.");
+        return;
+      }
+      if (fecha < MIN_DATE) {
+        alert("La fecha mínima es 26 de enero de 2026.");
+        return;
+      }
+
+      // Armamos los datos en x-www-form-urlencoded (para que Express los lea sin librerías extra)
+      const raw = new FormData(form);
+      raw.set("fechaHora", `${fecha} ${hora}`); // campo combinado como en tu server
+
+      const payload = new URLSearchParams();
+      for (const [k, v] of raw.entries()) payload.append(k, v);
+
+      try {
+        const resp = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: payload.toString(),
+          mode: "cors"
+        });
+
+        if (resp.ok) {
+          successMessage.textContent = "✅ Form sent";
+          successMessage.classList.remove("hidden");
+          successMessage.classList.add("block");
+          form.reset();
+          // Mantener min después de reset
+          form.querySelector("#fecha").setAttribute("min", MIN_DATE);
+
+          setTimeout(() => successMessage.classList.add("hidden"), 5000);
+        } else {
+          alert("❌ Hubo un error al enviar el formulario.");
+        }
+      } catch (e) {
+        alert("⚠️ Error de conexión con el servidor.");
+      }
+    });
+
+    // Asegura el min en cada carga
+    document.addEventListener("DOMContentLoaded", () => {
+      form.querySelector("#fecha").setAttribute("min", "2026-01-26");
+    });
+  }
 </script>
 </body>
 </html>
-
-
