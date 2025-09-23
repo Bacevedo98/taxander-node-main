@@ -10,8 +10,8 @@
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Taxander: Tax filing service for the Latino community in the U.S. Easy, flexible, and affordable. Book your appointment now!">
-  <title>Taxander 🚀 - Your Ally in Tax Filing</title>
+  <meta name="description" content="Taxander: Tax filing service for young Latinos in the U.S. Easy, flexible, and affordable. Book your appointment now!">
+  <title>Taxander 🚀 - Your Tax Filing Ally</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,9 +20,12 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-    body { font-family: 'Poppins', sans-serif; }
 
-    /* Header */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Header & Scroll */
     .header {
       position: fixed;
       top: 0;
@@ -36,6 +39,19 @@
       background-color: transparent;
       box-shadow: none;
     }
+
+    .logo-container img {
+      height: 90px;
+      width: 120px;
+      border-radius: 20px; 
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .logo-container img:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
     .logo-container h1 {
       font-size: 1.5rem;
       color: white;
@@ -43,10 +59,60 @@
       animation: float 2s infinite ease-in-out;
       transition: opacity 0.3s ease;
     }
-    .header.scrolled .logo-container h1 { opacity: 0; visibility: hidden; }
+    .header.scrolled .logo-container h1 {
+      opacity: 0;
+      visibility: hidden;
+    }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .overlay.active {
+      display: flex;
+    }
+
+    /* Modal */
+    .modal {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .close-btn {
+      background-color: #2D5080;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .close-btn:hover {
+      background-color: #435B83;
     }
   </style>
 </head>
@@ -68,126 +134,101 @@
   </div>
 </header>
 
+  <!-- Featured Services -->
+  <section class="container mx-auto py-20 pt-32" data-aos="fade-up">
+    <h3 class="text-2xl font-bold text-center">Featured Services</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" data-aos="fade-up" data-aos-delay="200">
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('individual')">
+        <img src="images/i2.webp" alt="Individual Returns" class="mx-auto mb-4">
+        <h4 class="font-bold">Individual Returns</h4>
+        <p class="mt-4">Fast and effective to maximize your refund. 📝</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('corporate')">
+        <img src="images/i3.webp" alt="Corporate Returns" class="mx-auto mb-4">
+        <h4 class="font-bold">Corporate Returns</h4>
+        <p class="mt-4">Optimize your business taxes with experts. 📈</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('irs')">
+        <img src="images/i4.webp" alt="IRS Issue Resolution" class="mx-auto mb-4">
+        <h4 class="font-bold">IRS Issue Resolution</h4>
+        <p class="mt-4">Quick and effective solutions for your IRS notices. 🚨</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('planning')">
+        <img src="images/i5.webp" alt="Tax Planning" class="mx-auto mb-4">
+        <h4 class="font-bold">Tax Planning</h4>
+        <p class="mt-4">Plan your financial future with smart strategies. 📊</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Script to detect current language -->
+  <!-- Overlay Modal -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h4 class="font-bold text-xl mb-2" id="overlay-title"></h4>
+      <p class="mt-4 text-justify" id="overlay-content"></p>
+      <button class="close-btn" onclick="hideOverlay()">Close</button>
+    </div>
+  </div>
+
+  <!-- Script Scroll Header -->
   <script>
-    const langSelector = document.getElementById("language-selector");
-    const path = window.location.pathname;
-
-    // Detect current page: root "/" or "/index.html" => Spanish
-    if (path === "/" || path.includes("index.html")) {
-      langSelector.value = "index.html";
-    } else if (path.includes("index-en.html")) {
-      langSelector.value = "index-en.html";
-    }
-
-    // Redirect on change
-    langSelector.addEventListener("change", (e) => {
-      // Si selecciona español y está en raíz, mandar a "/"
-      if (e.target.value === "index.html") {
-        window.location.href = "/";
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
       } else {
-        window.location.href = "/" + e.target.value;
+        header.classList.remove('scrolled');
       }
     });
   </script>
 
-  <!-- Featured Services -->
-<section class="container mx-auto py-20 pt-32" data-aos="fade-up">
-  <h3 class="text-2xl font-bold text-center">Featured Services</h3>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8" data-aos="fade-up" data-aos-delay="200">
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('individual')">
-      <img src="images/i2.webp" alt="Individual Tax Returns" class="mx-auto mb-4">
-      <h4 class="font-bold">Individual Tax Returns</h4>
-      <p class="mt-4">Fast and effective to maximize your refund. 📝</p>
-    </div>
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('corporate')">
-      <img src="images/i3.webp" alt="Corporate Tax Returns" class="mx-auto mb-4">
-      <h4 class="font-bold">Corporate Tax Returns</h4>
-      <p class="mt-4">Optimize your business taxes with experts. 📈</p>
-    </div>
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('irs')">
-      <img src="images/i4.webp" alt="IRS Issue Resolution" class="mx-auto mb-4">
-      <h4 class="font-bold">IRS Issue Resolution</h4>
-      <p class="mt-4">Quick and effective solutions for your IRS notices. 🚨</p>
-    </div>
-    <div class="bg-white rounded-lg shadow-lg p-6 text-center cursor-pointer transform hover:scale-105 transition duration-300" onclick="showOverlay('planning')">
-      <img src="images/i5.webp" alt="Tax Planning" class="mx-auto mb-4">
-      <h4 class="font-bold">Tax Planning</h4>
-      <p class="mt-4">Plan your financial future with smart strategies. 📊</p>
-    </div>
-  </div>
-</section>
+  <!-- Script Overlay -->
+  <script>
+    const overlay = document.getElementById('overlay');
+    const overlayTitle = document.getElementById('overlay-title');
+    const overlayContent = document.getElementById('overlay-content');
 
-<!-- Overlay Modal -->
-<div class="overlay" id="overlay">
-  <div class="modal">
-    <h4 class="font-bold text-xl mb-2" id="overlay-title"></h4>
-    <p class="mt-4 text-justify" id="overlay-content"></p>
-    <button class="close-btn" onclick="hideOverlay()">Close</button>
-  </div>
-</div>
+    function showOverlay(type) {
+      let title = '';
+      let content = '';
 
-<!-- Script Scroll Header -->
-<script>
-  const header = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-</script>
+      switch (type) {
+        case 'individual':
+          title = 'Individual Returns';
+          content = 'With our Individual Returns service, you will get specialized tax advice to maximize your refund. We review every detail of your income and deductions to ensure the most beneficial outcome for you.';
+          break;
+        case 'corporate':
+          title = 'Corporate Returns';
+          content = 'We provide strategies to optimize your company’s tax burden, analyze business activity, and design tax-saving plans while staying compliant with regulations.';
+          break;
+        case 'irs':
+          title = 'IRS Issue Resolution';
+          content = 'Having disputes with the IRS? Our team represents you, negotiates, and resolves any type of notice or audit—stress-free and professionally.';
+          break;
+        case 'planning':
+          title = 'Tax Planning';
+          content = 'Plan your financial future with a comprehensive plan and save on taxes intelligently. Ensure your economic stability and grow your wealth.';
+          break;
+      }
 
-<!-- Script Overlay -->
-<script>
-  const overlay = document.getElementById('overlay');
-  const overlayTitle = document.getElementById('overlay-title');
-  const overlayContent = document.getElementById('overlay-content');
-
-  function showOverlay(type) {
-    let title = '';
-    let content = '';
-
-    switch (type) {
-      case 'individual':
-        title = 'Individual Tax Returns';
-        content = 'With our Individual Tax Returns, you will receive specialized tax advice to maximize your refunds. We carefully review every detail of your income and deductions to ensure the most beneficial outcome.';
-        break;
-      case 'corporate':
-        title = 'Corporate Tax Returns';
-        content = 'We provide strategies to optimize your company’s tax burden, analyze your business activity, and design tax-saving plans, always complying with regulations.';
-        break;
-      case 'irs':
-        title = 'IRS Issue Resolution';
-        content = 'Having disputes with the IRS? Our team will represent you, negotiate, and resolve any type of notice or audit — stress-free and professionally.';
-        break;
-      case 'planning':
-        title = 'Tax Planning';
-        content = 'Plan your financial future with an integrated strategy and save on taxes intelligently. Secure your economic stability and grow your wealth.';
-        break;
+      overlayTitle.textContent = title;
+      overlayContent.textContent = content;
+      overlay.classList.add('active');
     }
 
-    overlayTitle.textContent = title;
-    overlayContent.textContent = content;
-    overlay.classList.add('active');
-  }
+    function hideOverlay() {
+      overlay.classList.remove('active');
+    }
+  </script>
 
-  function hideOverlay() {
-    overlay.classList.remove('active');
-  }
-</script>
-
-<!-- AOS Script -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
-</script>
-
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
 
   <!-- Sobre Nosotros -->
   <section class="bg-[#F7F9FC] py-12" data-aos="fade-up">
