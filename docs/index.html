@@ -54,21 +54,19 @@
 <body class="bg-gray-100 text-gray-900">
   <!-- Header -->
   <header class="header">
-    <!-- Selector de idioma -->
-    <select id="language-selector" class="p-1 rounded text-black">
-      <option value="index.html">Español</option>
-      <option value="index-en.html">Inglés</option>
-    </select>
-
-    <div class="container mx-auto flex justify-between items-center py-4 px-4">
-      <div class="logo-container flex items-center">
-        <h1 class="font-bold">Taxander 🚀</h1>
-      </div>
-      <a href="#contacto" class="bg-[#2D5080] hover:bg-[#435B83] text-white py-2 px-4 rounded shadow-lg">
-        ¡Reserva tu cita ahora!
-      </a>
+  <select onchange="location = this.value;">
+    <option value="index.html" selected>Español</option>
+    <option value="index-en.html">English</option>
+  </select>
+  <div class="container mx-auto flex justify-between items-center py-4 px-4">
+    <div class="logo-container flex items-center">
+      <h1 class="font-bold">Taxander 🚀</h1>
     </div>
-  </header>
+    <a href="#contacto" class="bg-[#2D5080] hover:bg-[#435B83] text-white py-2 px-4 rounded shadow-lg">
+      ¡Reserva tu cita ahora!
+    </a>
+  </div>
+</header>
 
   <!-- Script para manejar idioma -->
   <script>
