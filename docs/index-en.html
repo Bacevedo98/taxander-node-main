@@ -842,50 +842,58 @@
       </div>
 
       <div class="mb-4">
-        <label for="fecha" class="block font-bold">Date and Time:</label>
-        <div class="flex gap-2">
-          <!-- Minimum Jan 26, 2026 -->
-          <input type="date" id="fecha" name="fecha" class="w-1/2 p-2 border rounded" min="2026-01-26" required>
-          <!-- 08:00 to 18:00 every 30 min -->
-          <select id="hora" name="hora" class="w-1/2 p-2 border rounded" required>
-            <option value="08:00">08:00</option>
-            <option value="08:30">08:30</option>
-            <option value="09:00">09:00</option>
-            <option value="09:30">09:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
-            <option value="13:00">13:00</option>
-            <option value="13:30">13:30</option>
-            <option value="14:00">14:00</option>
-            <option value="14:30">14:30</option>
-            <option value="15:00">15:00</option>
-            <option value="15:30">15:30</option>
-            <option value="16:00">16:00</option>
-            <option value="16:30">16:30</option>
-            <option value="17:00">17:00</option>
-            <option value="17:30">17:30</option>
-            <option value="18:00">18:00</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <label for="codigo-descuento" class="block font-bold">Discount Code (take advantage!):</label>
-        <input type="text" id="codigo-descuento" name="codigo-descuento" class="w-full p-2 border rounded">
-      </div>
-
-      <button type="submit" class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded">
-        Send
-      </button>
-
-      <!-- Success message -->
-      <p id="success-message" class="hidden mt-4 text-green-600 font-bold text-center"></p>
-    </form>
+  <label for="fecha" class="block font-bold">Date and Time:</label>
+  <div class="flex gap-2">
+    <!-- Minimum January 26, 2026, and initial value set -->
+    <input 
+      type="date" 
+      id="fecha" 
+      name="fecha" 
+      class="w-1/2 p-2 border rounded" 
+      min="2026-01-26" 
+      value="2026-01-26" 
+      required>
+      
+    <!-- 08:00 AM to 06:00 PM every 30 minutes -->
+    <select id="hora" name="hora" class="w-1/2 p-2 border rounded" required>
+      <option value="08:00">08:00 AM</option>
+      <option value="08:30">08:30 AM</option>
+      <option value="09:00">09:00 AM</option>
+      <option value="09:30">09:30 AM</option>
+      <option value="10:00">10:00 AM</option>
+      <option value="10:30">10:30 AM</option>
+      <option value="11:00">11:00 AM</option>
+      <option value="11:30">11:30 AM</option>
+      <option value="12:00">12:00 PM</option>
+      <option value="12:30">12:30 PM</option>
+      <option value="13:00">01:00 PM</option>
+      <option value="13:30">01:30 PM</option>
+      <option value="14:00">02:00 PM</option>
+      <option value="14:30">02:30 PM</option>
+      <option value="15:00">03:00 PM</option>
+      <option value="15:30">03:30 PM</option>
+      <option value="16:00">04:00 PM</option>
+      <option value="16:30">04:30 PM</option>
+      <option value="17:00">05:00 PM</option>
+      <option value="17:30">05:30 PM</option>
+      <option value="18:00">06:00 PM</option>
+    </select>
   </div>
+</div>
+
+<div class="mb-4">
+  <label for="codigo-descuento" class="block font-bold">Discount Code (take advantage!):</label>
+  <input type="text" id="codigo-descuento" name="codigo-descuento" class="w-full p-2 border rounded">
+</div>
+
+<button type="submit" class="w-full bg-[#2D5080] hover:bg-[#435B83] text-white py-2 rounded">
+  Send
+</button>
+
+<!-- Success message -->
+<p id="success-message" class="hidden mt-4 text-green-600 font-bold text-center"></p>
+</form>
+</div>
 </section>
 
 <!-- Footer -->
@@ -895,7 +903,7 @@
   <a href="#" class="text-white">Legal Terms</a>
 </footer>
 
-<!-- Script: combine date and time, send without redirect -->
+<!-- Script to combine date and time and submit without redirect -->
 <script>
   const form = document.getElementById("taxander-form");
   const successMessage = document.getElementById("success-message");
@@ -907,9 +915,10 @@
       const fecha = form.querySelector("#fecha").value;   // yyyy-mm-dd
       const hora  = form.querySelector("#hora").value;    // HH:MM
 
+      // Extra validation
       const MIN_DATE = "2026-01-26";
       if (!fecha || !hora) {
-        alert("Please select a date and a time.");
+        alert("Please select a date and time.");
         return;
       }
       if (fecha < MIN_DATE) {
@@ -917,6 +926,7 @@
         return;
       }
 
+      // Build data
       const raw = new FormData(form);
       raw.set("fechaHora", `${fecha} ${hora}`);
 
@@ -936,7 +946,11 @@
           successMessage.classList.remove("hidden");
           successMessage.classList.add("block");
           form.reset();
-          form.querySelector("#fecha").setAttribute("min", MIN_DATE);
+
+          // Keep initial value after reset
+          const inputFecha = form.querySelector("#fecha");
+          inputFecha.setAttribute("min", MIN_DATE);
+          inputFecha.value = MIN_DATE;
 
           setTimeout(() => successMessage.classList.add("hidden"), 5000);
         } else {
@@ -947,8 +961,11 @@
       }
     });
 
+    // Ensure min and value on load
     document.addEventListener("DOMContentLoaded", () => {
-      form.querySelector("#fecha").setAttribute("min", "2026-01-26");
+      const inputFecha = form.querySelector("#fecha");
+      inputFecha.setAttribute("min", "2026-01-26");
+      inputFecha.value = "2026-01-26";
     });
   }
 </script>
