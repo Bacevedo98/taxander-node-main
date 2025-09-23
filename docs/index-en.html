@@ -1,5 +1,5 @@
-!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <style>
     #taxChart {
@@ -20,12 +20,9 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    body { font-family: 'Poppins', sans-serif; }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Header y Scroll */
+    /* Header */
     .header {
       position: fixed;
       top: 0;
@@ -39,19 +36,6 @@
       background-color: transparent;
       box-shadow: none;
     }
-
-    .logo-container img {
-      height: 90px;
-      width: 120px;
-      border-radius: 20px; 
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .logo-container img:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
-
     .logo-container h1 {
       font-size: 1.5rem;
       color: white;
@@ -59,60 +43,10 @@
       animation: float 2s infinite ease-in-out;
       transition: opacity 0.3s ease;
     }
-    .header.scrolled .logo-container h1 {
-      opacity: 0;
-      visibility: hidden;
-    }
-
+    .header.scrolled .logo-container h1 { opacity: 0; visibility: hidden; }
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    /* Overlay: modal con fondo visible */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .overlay.active {
-      display: flex;
-    }
-
-    /* Modal */
-    .modal {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-    .close-btn {
-      background-color: #2D5080;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .close-btn:hover {
-      background-color: #435B83;
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
   </style>
 </head>
@@ -120,10 +54,12 @@
 <body class="bg-gray-100 text-gray-900">
   <!-- Header -->
   <header class="header">
-    <select onchange="location = this.value;">
-        <option value="index.html" selected>Spanish</option>
-        <option value="index-en.html">English</option>
-      </select>
+    <!-- Language selector -->
+    <select id="language-selector" class="p-1 rounded text-black">
+      <option value="index.html">Spanish</option>
+      <option value="index-en.html">English</option>
+    </select>
+
     <div class="container mx-auto flex justify-between items-center py-4 px-4">
       <div class="logo-container flex items-center">
         <h1 class="font-bold">Taxander 🚀</h1>
@@ -133,6 +69,29 @@
       </a>
     </div>
   </header>
+
+  <!-- Script to detect current language -->
+  <script>
+    const langSelector = document.getElementById("language-selector");
+    const path = window.location.pathname;
+
+    // Detect current page: root "/" or "/index.html" => Spanish
+    if (path === "/" || path.includes("index.html")) {
+      langSelector.value = "index.html";
+    } else if (path.includes("index-en.html")) {
+      langSelector.value = "index-en.html";
+    }
+
+    // Redirect on change
+    langSelector.addEventListener("change", (e) => {
+      // Si selecciona español y está en raíz, mandar a "/"
+      if (e.target.value === "index.html") {
+        window.location.href = "/";
+      } else {
+        window.location.href = "/" + e.target.value;
+      }
+    });
+  </script>
 
   <!-- Featured Services -->
   <section class="container mx-auto py-20 pt-32" data-aos="fade-up">
